@@ -1,7 +1,6 @@
 package oauth2mailru
 
 import (
-	"context"
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
@@ -26,7 +25,7 @@ type UserInfo struct {
 
 const userInfoURL = "https://oauth.mail.ru/userinfo"
 
-func (c *client) GetUserInfo(ctx context.Context, token string) (*UserInfo, error) {
+func (c *client) GetUserInfo(token string) (*UserInfo, error) {
 	params := url.Values{}
 	params.Add("access_token", token)
 
